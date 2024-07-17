@@ -1,38 +1,41 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    phone_number: '',
+    username: "",
+    email: "",
+    password: "",
+    phone_number: "",
     sub_admin: false,
-    roles: '',
+    roles: "",
   });
 
-  const [message, setMessage] = useState('');
-  const navigate = useNavigate(); 
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/signup/', formData);
+      const response = await axios.post(
+        "http://localhost:8000/signup/",
+        formData
+      );
       setMessage(response.data.message);
       if (response.status === 201) {
-        navigate('/admin/productlist');
+        navigate("/admin/productlist");
       }
     } catch (error) {
-      setMessage('Error: ' + error.response.data.Message);
+      setMessage("Error: " + error.response.data.Message);
     }
   };
 
@@ -117,6 +120,15 @@ const SignupForm = () => {
           </button>
         </form>
         {message && <p className="mt-4 text-center text-red-500">{message}</p>}
+        <div className="flex justify-between text-sm">
+          <span
+            className="text-[#A10039] hover:cursor-pointer"
+            onClick={() => navigate('/')} // Add onClick handler for navigation
+          >
+           
+            login
+          </span>
+        </div>
       </div>
     </div>
   );

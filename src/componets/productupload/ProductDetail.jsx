@@ -49,7 +49,8 @@ function ProductDetail() {
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">{product.ProductName} </h2>
                         <p className="text-lg text-gray-700 mb-2"><strong>Product Code:</strong> {product.ProductCode}</p>
                         <p className="text-lg text-gray-700 mb-2"><strong>HSN Code:</strong> {product.HSNCode}</p>
-                        <p className="text-lg text-gray-700 mb-2"><strong>Total Stock:</strong> {product.TotalStock}</p>
+                        <p className="text-lg text-gray-700 mb-2"><strong>Total stock:{parseInt(product.TotalStock)}</strong></p>
+
                         <p className="text-lg text-gray-700 mb-2"><strong>Is Favourite:</strong> {product.IsFavourite ? 'Yes' : 'No'}</p>
                         <p className="text-lg text-gray-700 mb-2"><strong>Active:</strong> {product.Active ? 'Yes' : 'No'}</p>
 

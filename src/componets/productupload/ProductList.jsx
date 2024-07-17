@@ -40,7 +40,10 @@ function ProductList() {
         <div className="max-w-7xl mx-auto p-4">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">Products List</h2>
-                <div>
+
+                <div className="flex items-center">
+                <p className="mr-4">Admin only:</p> 
+
                     <button
                         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 mr-4"
                         onClick={handleAddProduct}
@@ -70,7 +73,9 @@ function ProductList() {
                        
                         <h3 className="text-xl font-semibold mb-2">{product.ProductName}</h3>
                         <p className="text-gray-700 mb-1">Price: ${product.ProductCode}</p>
-                        <p className="text-gray-700">Stock: {product.TotalStock}</p>
+                        {/* <p className="text-gray-700">Stock: {product.TotalStock}</p> */}
+                        <p className="text-gray-700">Stock: {parseInt(product.TotalStock)}</p>
+
                         {/* <a href={product?.ProductImage} target='__blank'> {product?.ProductImage}</a> */}
                     </div>
                 ))}
